@@ -14,6 +14,11 @@ async function teamToID(teamName) {
   const data = await fetch(url, options);
   const json = await data.json();
   const res = json.response;
+
+  if (res.length < 1) {
+    alert('Could not get team data, check for typos');
+  }
+
   let teamID = 0;
   let teamLogo = '';
   let fullTeamName = '';
